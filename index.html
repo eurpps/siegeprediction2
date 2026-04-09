@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="update()">
+    <div class="container1">
+        <ul class="navbar">
+            <li><img id="logo" src="images/Untitled-1.png" alt="crosshair" onclick="killright()"></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Howitworks.html">How it works</a></li>
+            <li><a href="predictions.html">Predictions</a></li>
+            <li><a href="feedback.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <h1 class = "Title">home</h1>
+    <hr class = "shr"> 
+    <h1 class = "headline">TRY ME!</h1>
+    <hr>
+    <div class="mainbodyr">
+        <p id="right">This is appearing on the right. idk how tall this is, or is supposed to be. </p>
+        <button class="button" onclick="example1()">Click Me</button>
+    </div>
+    <div class="mainbodyl">
+        <p class = "left">This will give you an overview of your statistics in siege. The output will be displayed
+            on the right. In order for this to work, you will need to paste your API key in the prompt. You won't
+            need it every time, just this once (as long as your cookies are stored). If you do not have an API
+            key, you can get one from <a href="https://www.R6data.eu">R6 Data</a>. 
+        </p>
+        <input type="text" id="input" placeholder="Enter your API key here">
+        <div id="buttonAndOutput">
+            <div id="Buttons">
+                <button class="button" onclick="storekey()">Submit</button>
+                <button class="button" onclick="clearkey()">Clear</button>
+                <button class="button" onclick="returnkey()">Return Key</button>
+            </div>
+            <p id="output">No api key present</p>
+
+        </div>
+        <p>Once you have your API key entered, you will need to look up the user you want to view statistics. First,
+            select the appropriate platform (PC, Xbox, or PlayStation) from the dropdown box on the left. Next enter the username in the dialogue box on the right.
+            press "Get stats". the output will be displayed on the right.
+        </p>
+        <div id="dropdownanduser">
+            <select id="platform">
+                <option value="pc">PC</option>
+                <option value="xbox">Xbox</option>
+                <option value="playstation">PlayStation</option>
+            </select>
+            <div>
+                <input type="text" id="username" placeholder="Enter username here">
+                <button class="button" onclick="datafetch()">Get stats</button>
+            </div>
+        </div>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
