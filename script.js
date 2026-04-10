@@ -1,5 +1,5 @@
 const BASE = 'https://api.r6data.eu';
-const proxied = url => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
+//const proxied = url => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
 
 const RANK_NAMES = [
   'Unranked',
@@ -21,11 +21,11 @@ function datafetch() {
     } else {
         platformfamily = "pc";
     }
-    fetch(('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformfamily, {
+    fetch('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformfamily, {
         headers: {
             'api-key': '51af0875495505ea6ade106cca14a7b640e407a786aaa925e93aea61333161d473c40235af0851c9d83edfb48e1d4033ff9c9d5ae95828511ff6686b93b4a1d7'
         }
-  }))
+  })
 
     .then(response => response.json())
     .then(data => console.log(data))
