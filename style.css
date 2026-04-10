@@ -186,7 +186,7 @@ p {
     border-radius: 10px;
     
 }
-#kills-output, #deaths-output, #kd-output, #ranked-output, #win-percentage-output, #username-output {
+.optext{
     margin: 5px 15px 5px 15px;
     padding:5px 10px 5px 10px;
     border-radius: 10px;
