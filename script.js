@@ -1,4 +1,4 @@
-const BASE = 'https://api.r6data.eu';
+// const BASE = 'https://api.r6data.eu';
 //const proxied = url => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
 
 const RANK_NAMES = [
@@ -21,9 +21,9 @@ function datafetch() {
     } else {
         platformfamily = "pc";
     }
-    fetch('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformfamily, {
+    fetch('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         headers: {
-            'api-key': '51af0875495505ea6ade106cca14a7b640e407a786aaa925e93aea61333161d473c40235af0851c9d83edfb48e1d4033ff9c9d5ae95828511ff6686b93b4a1d7'
+            'api-key': localStorage.getItem('apiKey')
         }
   })
 
@@ -45,7 +45,7 @@ function storekey() {
     }
 }
 function update(){
-    if (localStorage.getItem("apiKey").length > 0) {
+    if (localStorage.getItem("apiKey")) {
         document.getElementById("output").innerHTML = "Saved"
         document.getElementById("output").style.color = "green";
     }
