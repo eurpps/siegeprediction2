@@ -45,7 +45,7 @@ h1 {
 }
 .navbar {
     list-style-type:none;
-    border-radius:20px;
+    border-radius:10px;
     margin:10px;
     padding:10px;
     overflow:hidden;
@@ -96,7 +96,7 @@ p {
     font-size:0.6cm;
 }
 .mainbodyl {
-    border-radius:20px;
+    border-radius:10px;
     display:flex;
     background-color:#5e0100;
     width:calc(50% - 20px);
@@ -110,10 +110,10 @@ p {
     box-sizing:border-box;
 }
 .mainbodyr {
-    border-radius:20px;
+    border-radius:10px;
     display:flex;
-    justify-content:left;
-    align-items:center;
+    justify-content:flex-start;
+    align-items:left;
     background-color:#5e0100;
     width:calc(50% - 20px);
     height:100%;
@@ -122,6 +122,9 @@ p {
     text-align:left;
     box-sizing:border-box;
     float:right;
+    flex-direction:column;
+
+
 }
 
 #logo {
@@ -169,9 +172,23 @@ p {
 }
 
 /* output styling */
+#hresults {
+    float:left;
+}
 #outputbox {
     display:flex;
-    flex-direction:column;
-    justify-content:space-evenly;
-    align-items:top;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:calc(100% - 10px);
+    box-sizing: border-box;
+    background-color: #222222;
+    border-radius: 10px;
+    
+}
+#kills-output, #deaths-output, #kd-output, #ranked-output, #win-percentage-output, #username-output {
+    margin: 5px 15px 5px 15px;
+    padding:5px 10px 5px 10px;
+    border-radius: 10px;
+    text-decoration:underline;
 }
