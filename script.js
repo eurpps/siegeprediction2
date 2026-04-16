@@ -1,5 +1,5 @@
-// const BASE = 'https://api.r6data.eu';
-//const proxied = url => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
+const BASE = 'https://api.r6data.eu';
+
 
 const RANK_NAMES = [
   'Unranked',
