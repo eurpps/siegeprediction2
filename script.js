@@ -62,3 +62,6 @@ function clearkey() {
 function returnkey() {
     alert("Your API key is: " + localStorage.getItem("apiKey"));
 }
+function hide() {
+    document.getElementById("temp").style.display = "none";
+}
