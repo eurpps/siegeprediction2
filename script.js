@@ -15,7 +15,7 @@ const RANK_NAMES = [
 function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
-    let platformfamily
+    var platformfamily
     if (platformType == "xbox" || platformType == "playstation") {
         platformfamily = 'console';
     } else {
