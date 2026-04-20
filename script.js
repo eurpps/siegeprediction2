@@ -15,11 +15,11 @@ const RANK_NAMES = [
 function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
-    var platformfamily
+    var platformFamily
     if (platformType == "xbox" || platformType == "playstation") {
-        platformfamily = 'console';
+        platformFamily = 'console';
     } else {
-        platformfamily = "pc";
+        platformFamily = "pc";
     }
     fetch('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         headers: {
