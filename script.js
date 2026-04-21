@@ -15,17 +15,14 @@ const RANK_NAMES = [
 function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
-    var platformFamily
-    if (platformType == "xbox" || platformType == "playstation") {
-        platformFamily = 'console';
-    } else {
-        platformFamily = "pc";
-    }
-    fetch('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
+    var platformFamily = (platformType === "xbox" || platformType === "playstation") ? "console" : "pc"; 
+
+
+    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         headers: {
             'api-key': localStorage.getItem('apiKey')
         }
-  })
+    })
     console.log('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         headers: {
             'api-key': localStorage.getItem('apiKey')
