@@ -24,10 +24,16 @@ function datafetch() {
             'api-key': localStorage.getItem('apiKey')
         }
     })
-
+    
+    
+    
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        const profile = data.platform_families_full_profiles[0].board_ids_full_profiles[0].find(b => b.board_id === "ranked").full_profiles[0].profile;
+        document.getElementById("kills").innerHTML = profile.kills;
+    })
     .catch(err => console.error('Fetch error:', err));
+
 }
 function storekey() {
     
