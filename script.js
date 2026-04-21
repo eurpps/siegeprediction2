@@ -18,7 +18,7 @@ function datafetch() {
     var platformFamily = (platformType === "xbox" || platformType === "playstation") ? "console" : "pc"; 
 
 
-    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + endocdeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
+    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + endodeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')
