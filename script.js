@@ -13,7 +13,7 @@ const RANK_NAMES = [
   'Champion'
 ];
 function datafetch() {
-    var PlayerName = document.getElementById("username").value;
+    var PlayerName = document.getElementById("user").value;
     var platformType = document.getElementById("platform").value;
     var platformFamily = (platformType === "xbox" || platformType === "playstation") ? "console" : "pc"; 
 
