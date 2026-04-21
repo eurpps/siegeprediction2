@@ -18,16 +18,12 @@ function datafetch() {
     var platformFamily = (platformType === "xbox" || platformType === "playstation") ? "console" : "pc"; 
 
 
-    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
+    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + endocdeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
+        method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')
         }
     })
-    console.log('https://api.r6data.eu/api/stats?type=stats&nameOnPlatform=' + PlayerName + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
-        headers: {
-            'api-key': localStorage.getItem('apiKey')
-        }
-  })
 
     .then(response => response.json())
     .then(data => console.log(data))
