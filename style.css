@@ -147,6 +147,8 @@ p {
     padding:10px 20px 10px 20px;
     cursor:pointer;
     margin: 10px 0px 10px 0px;
+    transition: transform 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
 }
 #buttonAndOutput {
     display:flex;
@@ -156,9 +158,15 @@ p {
 }
 .button:hover {
     background-color:#330100;
+    transition: background-color 0.2s ease;
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+
 }
 .button:active {
     background-color: #220100;
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
 }
 #buttons {
     display:flex;
@@ -198,8 +206,45 @@ p {
     text-align: center;
     background-color:#330100;
     box-sizing:border-box;
-    width:100px;
+    width: calc(calc(100%/3) - 20px);
     border-radius:10px;
     height: 100px;
     margin:10px;
+}
+.predic{
+    display:flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    flex-direction: row;
+}
+
+.prein {
+    display:flex;
+    justify-content: space-between;
+    box-sizing:border-box;
+    background-color: #af3737;
+    width: calc(50%-20px)
+
+}
+
+#hiw {
+    display:flex;
+    box-sizing: border-box;
+    width: calc(100%-20px);
+    background-color:#5e0100;
+    border-radius:10px;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+    align-items: center;
+    margin:10px;
+}
+#pfp {
+    width:500px;
+    border-radius:10px;
+    transition: transform 0.2s ease-out
+}
+#pfp:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
 }

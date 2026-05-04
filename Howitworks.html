@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
@@ -7,6 +6,7 @@
 <body>
     <div class="container1">
         <ul class="navbar">
+            <li><img id="logo" src="images/Untitled-1.png" alt="crosshair" onclick="killright()"></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="Howitworks.html">How it works</a></li>
             <li><a href="predictions.html">Predictions</a></li>
@@ -15,6 +15,17 @@
     </div>
     <h1 class = "Title">How it works</h1>
     <hr class = "shr"> 
+    <div id='hiw'>
+        <p>
+            this website uses R6Data's Api to get your statistics, that's why you need an api key.
+            It can't be hosted locally because fetches don't work, so the only place you can use this is on http://eurpps.com, which is a site that I hosted
+            and put a proxy in to avoid CORS issues. It works by getting the data in the form of a json
+            file and then parsing it to get the specific data for each statistic that is measured. Ubisoft profile pictures have to be
+            obtained another way because R6Data doesn't provide them in the fetch. I get them with 
+        </p>
+        <img src="images/IMG_6220.WEBP" style="border-radius:10px; width: 500px; ;" alt="profile picture" id="pfp">
+
+    </div>
 
 </body>
 </html>

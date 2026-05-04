@@ -1,5 +1,15 @@
 const BASE = 'https://api.r6data.eu';
 
+import React from "react";
+import "./style.css"
+
+const MyImage = ({children}) => {
+    return <Image id="pfp">(children)</Image>
+}
+export default MyImage;
+const buttons = ({children}) => {
+    return <button className="button">(children)</button>
+}
 
 const RANK_NAMES = [
   'Unranked',
@@ -69,3 +79,5 @@ function returnkey() {
 function hide() {
     document.getElementById("temp").style.display = "none";
 }
+
+
