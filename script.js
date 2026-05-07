@@ -1,3 +1,10 @@
+window.storeKey = storeKey;
+window.clearKey = clearKey;
+window.returnKey = returnKey;
+window.datafetch = datafetch;
+window.update = update;
+window.hide = hide;
+
 const BASE = 'https://api.r6data.eu';
 
 import React from "react";
