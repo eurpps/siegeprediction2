@@ -32,7 +32,7 @@ function datafetch() {
         }
     })
     
-    
+.then (response => responce.json())
 
 .then(data => {
     // const text = await response.text();
