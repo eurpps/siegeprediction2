@@ -25,9 +25,7 @@ if (!$type || !$name) {
     exit();
 }
 
-// Build API URL (adjust if needed)
-$url = "https://r6data.eu/api/?" . http_build_query([
-    "type" => $type,
+$url = "https://r6data.eu/api/$type?" . http_build_query([
     "nameOnPlatform" => $name,
     "platformType" => $platform,
     "platform_families" => $family
@@ -64,3 +62,6 @@ if ($contentType) {
 
 curl_close($ch);
 echo $response;
+
+echo $url;
+exit();
