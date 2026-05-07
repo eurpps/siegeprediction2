@@ -32,7 +32,7 @@ function datafetch() {
         }
     })
     
-.then (response => responce.json())
+.then (response => response.json())
 
 .then(data => {
     // const text = await response.text();
@@ -42,7 +42,7 @@ function datafetch() {
     //     console.log(data);
     //     const profile =
     console.log(data);
-    data.platform_families_full_profiles[0]
+    const profile = data.platform_families_full_profiles[0]
     .board_ids_full_profiles[0]
     .full_profiles[0]
     .profile;
