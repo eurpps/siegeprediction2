@@ -22,7 +22,7 @@ const RANK_NAMES = [
 function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
-    var platformFamily = (platformType === "xbox" || platformType === "playstation") ? "console" : "pc"; 
+    var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"; 
 
 
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {

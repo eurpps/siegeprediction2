@@ -1,67 +1,134 @@
 <?php
-die("proxy works)");
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
+// ==============================
+// CORS
+// ==============================
 header("Access-Control-Allow-Origin: https://siege.eurpps.com");
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, api-key");
 
-// Handle preflight
+// Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
-// Validate input
+// ==============================
+// Debugging (remove in production)
+// ==============================
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// ==============================
+// Get query parameters
+// ==============================
 $type = $_GET['type'] ?? '';
 $name = $_GET['nameOnPlatform'] ?? '';
 $platform = $_GET['platformType'] ?? '';
 $family = $_GET['platform_families'] ?? '';
 
-if (!$type || !$name) {
+// ==============================
+// Validate required params
+// ==============================
+if (
+    empty($type) ||
+    empty($name) ||
+    empty($platform)
+) {
     http_response_code(400);
-    echo json_encode(["error" => "Missing parameters"]);
+
+    echo json_encode([
+        "error" => "Missing required parameters",
+        "required" => [
+            "type",
+            "nameOnPlatform",
+            "platformType"
+        ]
+    ]);
+
     exit();
 }
 
-$url = "https://r6data.eu/api/$type?" . http_build_query([
+// ==============================
+// Get API key from request header
+// ==============================
+$apiKey = $_SERVER['HTTP_API_KEY'] ?? '';
+
+if (empty($apiKey)) {
+    http_response_code(401);
+
+    echo json_encode([
+        "error" => "Missing API key"
+    ]);
+
+    exit();
+}
+
+// ==============================
+// Build R6Data URL
+// ==============================
+$query = http_build_query([
+    "type" => $type,
     "nameOnPlatform" => $name,
     "platformType" => $platform,
     "platform_families" => $family
 ]);
 
-// Initialize cURL
+$url = "https://api.r6data.eu/api/stats?" . $query;
+
+// ==============================
+// cURL Request
+// ==============================
 $ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-// 🔐 Put your API key here (NOT in JS)
-$clientKey = $_SERVER['HTTP_API_KEY'] ?? '';
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_TIMEOUT => 15,
+    CURLOPT_HTTPHEADER => [
+        "api-key: $apiKey",
+        "Accept: application/json"
+    ]
+]);
 
-$headers = [
-    "api-key: $clientKey"
-];
-
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-// Execute
 $response = curl_exec($ch);
 
+// ==============================
+// cURL Error Handling
+// ==============================
 if (curl_errno($ch)) {
+
     http_response_code(500);
-    echo json_encode(["error" => curl_error($ch)]);
+
+    echo json_encode([
+        "error" => "cURL Error",
+        "message" => curl_error($ch)
+    ]);
+
     curl_close($ch);
     exit();
 }
 
+// ==============================
+// Forward HTTP status
+// ==============================
+$status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+http_response_code($status);
+
+// ==============================
 // Forward content type
+// ==============================
 $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+
 if ($contentType) {
     header("Content-Type: $contentType");
+} else {
+    header("Content-Type: application/json");
 }
 
 curl_close($ch);
-echo $response;
 
-echo $url;
-exit();
+// ==============================
+// Return API response
+// ==============================
+echo $response;
