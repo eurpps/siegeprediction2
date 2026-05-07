@@ -45,7 +45,6 @@ function datafetch() {
     .board_ids_full_profiles[0]
     .full_profiles[0]
     .profile;
-    document.getElementById("kills").innerHTML = profile.kills;
         
     } catch(err) {
         console.error("Non-JSON response:");
@@ -53,6 +52,9 @@ function datafetch() {
     }
 })
 .catch(err => console.error('Fetch error:', err));
+
+document.getElementById("kills").innerHTML = profile.kills;
+console.log("successfully update kills")
 
 }
 function storeKey() {
