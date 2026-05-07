@@ -33,12 +33,19 @@ function datafetch() {
     
     
     
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(err => console.error('Fetch error:', err));
+fetch(url, options)
+.then(async response => {
+    const text = await response.text();
 
+    try {
+        const data = JSON.parse(text);
+        console.log(data);
+    } catch(err) {
+        console.error("Non-JSON response:");
+        console.log(text);
+    }
+})
+.catch(err => console.error('Fetch error:', err));
 
 }
 function storeKey() {
