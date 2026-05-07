@@ -40,6 +40,13 @@ function datafetch() {
     try {
         const data = JSON.parse(text);
         console.log(data);
+        const profile =
+    data.platform_families_full_profiles[0]
+    .board_ids_full_profiles[0]
+    .full_profiles[0]
+    .profile;
+    document.getElementById("kills").innerHTML = profile.kills;
+        
     } catch(err) {
         console.error("Non-JSON response:");
         console.log(text);
