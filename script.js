@@ -47,6 +47,11 @@ function datafetch() {
     .full_profiles[0]
     .profile;
         document.getElementById("kills").innerHTML = profile.kills;
+        document.getElementById("deaths").innerHTML = profile.deaths;
+        document.getElementById("kd").innerHTML = profile.kills/profile.deaths;
+        document.getElementById("ranked").innerHTML = RANK_NAMES[profile.rank];
+        document.getElementById("win-percentage").innerHTML = profile.wins/profile.losses * 100 + "%";
+        document.getElementById("kills").innerHTML = profile.kills;
         console.log("successfully update kills")
         
     // } catch(err) {
