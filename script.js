@@ -32,8 +32,7 @@ function datafetch() {
     })
     
     
-    
-fetch(url, options)
+
 .then(async response => {
     const text = await response.text();
 
