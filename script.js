@@ -41,6 +41,7 @@ function datafetch() {
     //     const data = JSON.parse(text);
     //     console.log(data);
     //     const profile =
+    console.log(data);
     data.platform_families_full_profiles[0]
     .board_ids_full_profiles[0]
     .full_profiles[0]
