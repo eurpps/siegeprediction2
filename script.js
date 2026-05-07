@@ -7,17 +7,6 @@ window.hide = hide;
 
 const BASE = 'https://api.r6data.eu';
 
-import React from "react";
-import "./style.css"
-
-const MyImage = ({children}) => {
-    return <Image id="pfp">(children)</Image>
-}
-export default MyImage;
-const buttons = ({children}) => {
-    return <button className="button">(children)</button>
-}
-
 const RANK_NAMES = [
   'Unranked',
   'Copper V','Copper IV','Copper III','Copper II','Copper I',
@@ -84,7 +73,10 @@ function returnKey() {
     alert("Your API key is: " + localStorage.getItem("apiKey"));
 }
 function hide() {
-    document.getElementById("temp").style.display = "none";
+    const tempElement = document.getElementById("temp");
+    if (tempElement) {
+        tempElement.style.display = "none";
+    }
 }
 
 
