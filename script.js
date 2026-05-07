@@ -34,13 +34,13 @@ function datafetch() {
     
     
 
-.then(async response => {
-    const text = await response.text();
+.then(data => {
+    // const text = await response.text();
 
-    try {
-        const data = JSON.parse(text);
-        console.log(data);
-        const profile =
+    // try {
+    //     const data = JSON.parse(text);
+    //     console.log(data);
+    //     const profile =
     data.platform_families_full_profiles[0]
     .board_ids_full_profiles[0]
     .full_profiles[0]
@@ -48,15 +48,13 @@ function datafetch() {
         document.getElementById("kills").innerHTML = profile.kills;
         console.log("successfully update kills")
         
-    } catch(err) {
-        console.error("Non-JSON response:");
-        console.log(text);
-    }
+    // } catch(err) {
+    //     console.error("Non-JSON response:");
+    //     console.log(text);
+    // }
 })
 .catch(err => console.error('Fetch error:', err));
 
-document.getElementById("kills").innerHTML = profile.kills;
-console.log("successfully update kills")
 
 }
 function storeKey() {
