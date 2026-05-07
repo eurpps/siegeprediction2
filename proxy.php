@@ -23,7 +23,8 @@ if (!$type || !$name) {
 }
 
 // Build API URL (adjust if needed)
-$url = "https://r6data.eu/api/$type?" . http_build_query([
+$url = "https://r6data.eu/api/?" . http_build_query([
+    "type" => $type,
     "nameOnPlatform" => $name,
     "platformType" => $platform,
     "platform_families" => $family
@@ -34,8 +35,10 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 // 🔐 Put your API key here (NOT in JS)
+$clientKey = $_SERVER['HTTP_API_KEY'] ?? '';
+
 $headers = [
-    "api-key: YOUR_API_KEY_HERE"
+    "api-key: $clientKey"
 ];
 
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
