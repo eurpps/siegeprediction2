@@ -45,7 +45,7 @@ function datafetch() {
     .catch(err => console.error('Fetch error:', err));
 
 }
-function storekey() {
+function storeKey() {
     
     var input = document.getElementById("input").value;
     localStorage.setItem("apiKey", input);
@@ -68,12 +68,12 @@ function update(){
         document.getElementById("output").style.color = "red";
     }
 }
-function clearkey() {
+function clearKey() {
     localStorage.removeItem("apiKey");
     document.getElementById("output").innerHTML = "No api key present"
     document.getElementById("output").style.color = "red";
 }
-function returnkey() {
+function returnKey() {
     alert("Your API key is: " + localStorage.getItem("apiKey"));
 }
 function hide() {
