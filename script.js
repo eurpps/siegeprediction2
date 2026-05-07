@@ -48,10 +48,10 @@ function datafetch() {
     .profile;
         document.getElementById("kills").innerHTML = profile.kills;
         document.getElementById("deaths").innerHTML = profile.deaths;
-        document.getElementById("kd").innerHTML = profile.kills/profile.deaths;
+        document.getElementById("kd").innerHTML = Math.round((profile.kills/profile.deaths) * 100)/100;
         document.getElementById("ranked").innerHTML = RANK_NAMES[profile.rank];
-        document.getElementById("win-percentage").innerHTML = profile.wins/profile.losses * 100 + "%";
-        document.getElementById("kills").innerHTML = profile.kills;
+        document.getElementById("win-percentage").innerHTML = (profile.wins/profile.losses)*100 + "%";
+        document.getElementById("usernamee").innerHTML = PlayerName;
         console.log("successfully update kills")
         
     // } catch(err) {
