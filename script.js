@@ -23,8 +23,16 @@ function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
     var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"; 
-
-
+    fetch('https://siege.eurpps.com/proxy.php?type=accountInfo&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType,{
+        method:"GET",
+        headers: {
+            'api-key': localStorage.getItem('apiKey')   
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    });
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         method:"GET",
         headers: {
