@@ -248,3 +248,7 @@ p {
     transform: scale(1.05);
     transition: transform 0.2s ease;
 }
+#statpfp1 {
+    width:100px;
+    border-radius:25px
+}

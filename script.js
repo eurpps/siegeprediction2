@@ -32,6 +32,8 @@ function datafetch() {
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        const pfpsrc = data.profilePicture;
+        document.getElementById("statpfp1").src = pfpsrc;
     });
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
         method:"GET",
