@@ -23,19 +23,30 @@ function datafetch() {
     var PlayerName = document.getElementById("username").value;
     var platformType = document.getElementById("platform").value;
     var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"; 
-    fetch('https://siege.eurpps.com/proxy.php?type=accountInfo&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType,{
+
+    // give a loading message while fetching
+    document.getElementById("usernamee").innerHTML = "Loading...";
+    //Fetch pfp (note fetch type is account info)
+    fetch('https://siege.eurpps.com/proxy.php?type=accountInfo&nameOnPlatform='
+    + encodeURIComponent(PlayerName) + '&platformType=' 
+    + platformType,{
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')   
         }
     })
     .then(response => response.json())
+    //log data structure and change pfp to pfp
     .then(data => {
         console.log(data);
         const pfpsrc = data.profilePicture;
         document.getElementById("statpfp1").src = pfpsrc;
     });
-    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' + encodeURIComponent(PlayerName) + '&platformType=' + platformType + '&platform_families=' + platformFamily, {
+    //fetch actual data (namely kills)
+    fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' 
+        + encodeURIComponent(PlayerName) + '&platformType=' 
+        + platformType + '&platform_families=' 
+        + platformFamily, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')
@@ -43,7 +54,7 @@ function datafetch() {
     })
     
 .then (response => response.json())
-
+//data goes into the innerhtml for each stat
 .then(data => {
     // const text = await response.text();
 
