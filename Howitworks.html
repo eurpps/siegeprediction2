@@ -16,15 +16,18 @@
     <h1 class = "Title">How it works</h1>
     <hr class = "shr"> 
     <div id='hiw'>
-        <p>
-            this website uses R6Data's Api to get your statistics, that's why you need an api key.
-            It can't be hosted locally because fetches don't work, so the only place you can use this is on http://eurpps.com, which is a site that I hosted
-            and put a proxy in to avoid CORS issues. It works by getting the data in the form of a json
-            file and then parsing it to get the specific data for each statistic that is measured. Ubisoft profile pictures have to be
-            obtained another way because R6Data doesn't provide them in the fetch. I get them with 
-        </p>
-        <img src="images/IMG_6220.WEBP" style="border-radius:10px; width: 500px; ;" alt="profile picture" id="pfp">
-
+        <div style="display:flex; flex-direction:row; justify-content:space-evenly;">
+            <ul>
+                <li class="list">First, you enter an API key and save it. This will save a cookie and come in handy later
+                </li>
+                <li class="list">After this, you either input a username in the home tab or navigate to predictions to enter two
+                </li>
+                <li class="list">The API first fetches statistics, and stores them in a json which is parsed and navigated to show your statistics</li>
+                <li class="list">After this, A second fetch pulls a link to a pfp which is then changed</li>    
+            </ul>
+            <iframe style="margin-right:0px; padding-right:0;"src="https://www.youtube.com/embed/oZBOfeha-LA" title="20 TIPS To IMPROVE in Rainbow Six Siege as FAST as Possible" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        
     </div>
 
 </body>
