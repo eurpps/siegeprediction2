@@ -17,27 +17,29 @@
     <hr class = "shr"> 
      <div class="prein" id="p1">
         <p class="headline" >Player 1</p>
-        <input type="text" id="player1" placeholder="enter player 1 name here">
-        <input type="text" id="player2" placeholder="enter player 2 name here">
-            <select id="platform">
-                <option value="uplay">PC</option>
-                <option value="xbl">Xbox</option>
-                <option value="psn">PlayStation</option>
-            </select>
-    </div>
-    <div class = "prein" id="p2">
-        <p class="headline" >Player 2</p>
         <div class="predicdiv">
-            <input type="text" id="player2" placeholder="enter player 2 name here">
-            <select id="platform">
+            <input type="text" id="player1" placeholder="enter player 1 name here">
+            <select id="platform1">
                 <option value="uplay">PC</option>
                 <option value="xbl">Xbox</option>
                 <option value="psn">PlayStation</option>
             </select>
         </div>
     </div>
-    <button class="button" style="margin:auto;"onclick="predictOutcome()">Predict Outcome</button>
-    
+    <div class = "prein" id="p2">
+        <p class="headline" >Player 2</p>
+        <div class="predicdiv">
+            <input type="text" id="player2" placeholder="enter player 2 name here">
+            <select id="platform2">
+                <option value="uplay">PC</option>
+                <option value="xbl">Xbox</option>
+                <option value="psn">PlayStation</option>
+            </select>
+        </div>
+    </div>
+    <div class="centered">
+        <button class="button" id = "predictButton" onclick="predictOutcome()">Predict Outcome</button>
+    </div>
 
 </body>
 </html>
