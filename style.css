@@ -230,6 +230,8 @@ p{
     border-radius:10px;
     padding: 10px 20px 10px 20px;
     text-align: center;
+    margin:auto;
+    margin-top: 10px;
 }
 
 #hiw {
@@ -244,7 +246,7 @@ p{
     margin:10px;
     flex-direction: column;
 }
-iframe {
+.ytv {
     width:500px;
     border-radius:10px;
     transition: transform 0.2s ease-out
@@ -265,24 +267,15 @@ iframe {
     width:80px;
     border-radius:40px
 }
-#p1 {
-    float:left;
-    margin-left:10px;
-    text-align: center;
-}
-#p2 {
-    float:right;
-    margin-right:10px;
-    text-align: center;}
 
-iframe {
+.ytv {
     border-radius:10px;
     width:50%;
     height:scale;
     aspect-ratio: 16/9;
 
 }
-iframe:hover
+.ytv:hover
 {
     transform: scale(1.03);
     transition: transform 0.2s ease-in-out;
@@ -290,11 +283,10 @@ iframe:hover
 
 .contact-table {
     border-collapse: collapse;
-    width: 100%;
     margin-top: 20px;
     padding: 10px;
-    margin: 10px;
-    width:calc(100% - 20px);
+    margin: auto;
+    width:calc(50% - 20px);
     text-align:center;
     border-radius:10px;
     overflow: hidden;
@@ -304,14 +296,15 @@ iframe:hover
     font-size:30px
 }
 #feedbacksubmission {
+    box-sizing: border-box;
     display:flex;
     flex-direction:column;
     align-items:center;
     background-color: #5e0100;
-    margin:auto;
-    width:calc(100% - 20px);
+    width:calc(50% - 20px);
     border-radius:10px;
     padding: 10px 20px 10px 20px;
+    margin:auto;
 }
 
 .centered {
@@ -320,4 +313,34 @@ iframe:hover
     justify-content:center;
     align-items: center;
     width:100%;
+}
+#predictons {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+
+.predicout {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    box-sizing: border-box;
+    background-color:#5e0100;
+    border-radius:10px;
+    padding: 10px 20px 10px 20px;
+    width:calc(50% - 20px);
+    margin:auto;
+    margin-top:10px;
+    justify-content: space-evenly;
+}
+
+#pfp1 {
+    width:150px;
+    border-radius:100px;
+}
+
+#pfp2 {
+    width:150px;
+    border-radius:100px;
 }

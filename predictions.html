@@ -15,31 +15,49 @@
     </div>
     <h1 class = "Title">Predictions</h1>
     <hr class = "shr"> 
-     <div class="prein" id="p1">
-        <p class="headline" >Player 1</p>
-        <div class="predicdiv">
-            <input type="text" id="player1" placeholder="enter player 1 name here">
-            <select id="platform1">
-                <option value="uplay">PC</option>
-                <option value="xbl">Xbox</option>
-                <option value="psn">PlayStation</option>
-            </select>
+    <div id="predictions">
+        <div class="prein" id="p1">
+            <p class="headline" >Player 1</p>
+            <div class="predicdiv">
+                <input type="text" id="player1" placeholder="enter player 1 name here">
+                <select id="platform1">
+                    <option value="uplay">PC</option>
+                    <option value="xbl">Xbox</option>
+                    <option value="psn">PlayStation</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class = "prein" id="p2">
-        <p class="headline" >Player 2</p>
-        <div class="predicdiv">
-            <input type="text" id="player2" placeholder="enter player 2 name here">
-            <select id="platform2">
-                <option value="uplay">PC</option>
-                <option value="xbl">Xbox</option>
-                <option value="psn">PlayStation</option>
-            </select>
+        <div class = "prein" id="p2">
+            <p class="headline" >Player 2</p>
+            <div class="predicdiv">
+                <input type="text" id="player2" placeholder="enter player 2 name here">
+                <select id="platform2">
+                    <option value="uplay">PC</option>
+                    <option value="xbl">Xbox</option>
+                    <option value="psn">PlayStation</option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="centered">
         <button class="button" id = "predictButton" onclick="predictOutcome()">Predict Outcome</button>
     </div>
+    <div id="predictionoutcomes">
+        <div class="predicout" id="p1out">
+            <div id="p1left">
+                <p class="headline" id="p1outname">Player 1</p>
+                <p class="predicresult" id="p1result">null</p>
+                </div>
+                <img id="pfp1" src="images/profile-pic.png" alt="Profile Picture">
+        </div>
+        <div class="predicout" id="p2out">
+            <div id="p2left">
+                <p class="headline" id="p2outname">Player 2</p>
+                <p class="predicresult" id="p2result">null</p>
+            </div>
+                <img id="pfp2" src="images/profile-pic.png" alt="Profile Picture">
+        </div>
+    </div>>
 
 </body>
 </html>
