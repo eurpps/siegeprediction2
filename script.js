@@ -123,12 +123,21 @@ function hide() {
 }
 
 function predictOutcome() {
+    let p1overall;
+    let p2overall;
     const player1 = document.getElementById("player1").value;
     const player2 = document.getElementById("player2").value;
+
+    var platformType1 = document.getElementById("platform1").value;
+    var platformFamily1 = (platformType1 === "xbl" || platformType1 === "psn") ? "console" : "pc"
+
+    var platformType2 = document.getElementById("platform2").value;
+    var platformFamily2 = (platformType2 === "xbl" || platformType2 === "psn") ? "console" : "pc"
     // pfp for player 1
     fetch('https://siege.eurpps.com/proxy.php?type=accountInfo&nameOnPlatform='
     + encodeURIComponent(player1) + '&platformType=' 
-    + platformType,{
+    + platformType1 + '&platform_families=' 
+    + platformFamily1, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')   
@@ -144,7 +153,8 @@ function predictOutcome() {
     // pfp for player 2
         fetch('https://siege.eurpps.com/proxy.php?type=accountInfo&nameOnPlatform='
     + encodeURIComponent(player2) + '&platformType=' 
-    + platformType,{
+    + platformType2 + '&platform_families=' 
+    + platformFamily2, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')   
@@ -162,13 +172,11 @@ function predictOutcome() {
 
 
     // fetch stats for player 1
-    var platformType = document.getElementById("platform1").value;
-    var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"
 
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' 
         + encodeURIComponent(player1) + '&platformType=' 
-        + platformType + '&platform_families=' 
-        + platformFamily, {
+        + platformType1 + '&platform_families=' 
+        + platformFamily1, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')
@@ -185,17 +193,15 @@ function predictOutcome() {
             const kills1=profile.kills;
             const deaths1=profile.deaths;
             const ranked1=RANK_NAMES[profile.rank];
-            const p1overall = (kills1/deaths1) * (profile.wins/(profile.wins + profile.losses)) * (profile.rank + 1);
+            p1overall = (kills1/deaths1) * (profile.wins/(profile.wins + profile.losses)) * (profile.rank + 1);
             document.getElementById("p1outname").innerHTML = player1;
 });
 
     // fetch stats for player 2
-    var platformType = document.getElementById("platform2").value;
-    var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' 
         + encodeURIComponent(player2) + '&platformType=' 
-        + platformType + '&platform_families=' 
-        + platformFamily, {
+        + platformType2 + '&platform_families=' 
+        + platformFamily2, {
         method:"GET",
         headers: {
             'api-key': localStorage.getItem('apiKey')
@@ -203,6 +209,7 @@ function predictOutcome() {
     })
     .then(response => response.json())
     .then(data => {
+        
         console.log(data);
         // Update player 2 stats
         const profile = data.platform_families_full_profiles[0]
@@ -212,21 +219,20 @@ function predictOutcome() {
             const kills2=profile.kills;
             const deaths2=profile.deaths;
             const ranked2=RANK_NAMES[profile.rank];
-            const p2overall = (kills2/deaths2) * (profile.wins/(profile.wins + profile.losses)) * (profile.rank + 1);
+            p2overall = (kills2/deaths2) * (profile.wins/(profile.wins + profile.losses)) * (profile.rank + 1);
             document.getElementById("p2outname").innerHTML = player2;
+        if (p1overall > p2overall) {
+            document.getElementById("p2result").innerHTML = "Loser";
+            document.getElementById("p2result").style.color = "red";
+            document.getElementById("p1result").innerHTML = "Winner";
+            document.getElementById("p1result").style.color = "green";
+        }
+        else {
+            document.getElementById("p1result").innerHTML = "Loser";
+            document.getElementById("p1result").style.color = "red";
+            document.getElementById("p2result").innerHTML = "Winner";
+            document.getElementById("p2result").style.color = "green";
+        }
     });
-
-//compare stats
-    if (p1overall > p2overall) {
-        document.getElementById("p2result").innerHTML = "Loser";
-        document.getElementById("p2result").style.color = "red";
-        document.getElementById("p1result").innerHTML = "Winner";
-        document.getElementById("p1result").style.color = "green";
-    }
-    else {
-        document.getElementById("p1result").innerHTML = "Loser";
-        document.getElementById("p1result").style.color = "red";
-        document.getElementById("p2result").innerHTML = "Winner";
-        document.getElementById("p2result").style.color = "green";
-    }
 }
+//compare statss
