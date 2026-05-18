@@ -162,6 +162,9 @@ function predictOutcome() {
 
 
     // fetch stats for player 1
+    var platformType = document.getElementById("platform1").value;
+    var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"
+
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' 
         + encodeURIComponent(player1) + '&platformType=' 
         + platformType + '&platform_families=' 
@@ -187,6 +190,8 @@ function predictOutcome() {
 });
 
     // fetch stats for player 2
+    var platformType = document.getElementById("platform2").value;
+    var platformFamily = (platformType === "xbl" || platformType === "psn") ? "console" : "pc"
     fetch('https://siege.eurpps.com/proxy.php?type=stats&nameOnPlatform=' 
         + encodeURIComponent(player2) + '&platformType=' 
         + platformType + '&platform_families=' 
